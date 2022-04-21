@@ -1,11 +1,15 @@
 package ch.juventus.se.problemstofix.bird;
 
-import java.util.Set;
+import java.util.*;
 
 
 public class BirdController {
 
-    private Set<Bird> birds;
+    private List<Bird> birds;
+
+    public BirdController(){
+        birds = new ArrayList<>();
+    }
 
     public void addBird(Bird bird) {
         birds.add(bird);
