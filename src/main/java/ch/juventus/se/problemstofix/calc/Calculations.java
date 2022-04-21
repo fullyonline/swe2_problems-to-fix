@@ -5,14 +5,24 @@ import java.util.List;
 
 public class Calculations {
 
+    private double rountToTwoDecimals(double number){
+        number *= 100;
+        number = Math.round(number);
+        return number / 100;
+    }
+
     public double divide (double a, double b) {
-        return a/b;
+        return rountToTwoDecimals(a/b);
     }
 
     public Double exponential(Double value, int exponent) {
+        if(value == null || value == 0d){
+            return 0d;
+        }
+
         Double result = value;
 
-        for(int i = 0; i < exponent; i++) {
+        for(int i = 1; i < exponent; i++) {
             result = result*value;
         }
 
@@ -24,8 +34,8 @@ public class Calculations {
         int i = 0;
 
         while (i < accounts.size()) {
-            i++;
             total += accounts.get(i).getBalance();
+            i++;
         }
 
         return total;
@@ -34,7 +44,7 @@ public class Calculations {
     public int countErrors (List<String> data) {
         int errorCount = 0;
 
-        for (int i = 0; i <= data.size(); i++) {
+        for (int i = 0; i < data.size(); i++) {
             if(data.get(i).contains("error")) {
                 errorCount++;
             }
