@@ -7,6 +7,7 @@ public class PersonMapper {
         Student student = new Student();
 
         student.setFirstName(person.getFirstName());
+        student.setLastName(person.getLastName());
         student.setAddress(person.getAddress());
         student.setBirthday(person.getBirthday());
 

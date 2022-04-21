@@ -1,6 +1,7 @@
 package ch.juventus.se.problemstofix.person;
 
 import java.util.Date;
+import java.util.Objects;
 
 
 public class Person {
@@ -81,4 +82,29 @@ public class Person {
         this.hasKids = hasKids;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(birthday, person.birthday) && Objects.equals(address, person.address) && Objects.equals(balance, person.balance) && sex == person.sex && Objects.equals(hasKids, person.hasKids);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, birthday, address, balance, sex, hasKids);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthday=" + birthday +
+                ", address=" + address +
+                ", balance=" + balance +
+                ", sex=" + sex +
+                ", hasKids=" + hasKids +
+                '}';
+    }
 }
